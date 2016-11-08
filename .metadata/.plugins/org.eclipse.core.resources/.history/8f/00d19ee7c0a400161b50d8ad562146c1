@@ -1,0 +1,31 @@
+package com.cachinglevel;
+
+import java.io.File;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class CachingMain {
+
+	public static void main(String[] args) {
+
+		Configuration configuration = new Configuration();
+		configuration.configure(new File("src/hibernate.cfg.xml"));
+
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		
+		Product p1 = new Product("mobile",23000);
+		//session.save(p1);
+		
+		Product p2 = session.get(Product.class, p1.getId());
+		session.save(p1);
+		transaction.commit();
+		session.close();
+		sessionFactory.close();
+	}
+
+}

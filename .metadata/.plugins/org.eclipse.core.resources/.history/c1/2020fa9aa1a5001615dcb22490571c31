@@ -1,0 +1,13 @@
+package com.useroperations;
+
+public class UserOperations {
+ public void login(){
+	 
+ }
+public void logout(){
+	 
+ }
+public void register(){
+	 
+}
+}

@@ -1,0 +1,45 @@
+package com.manytomanymapping;
+
+import java.io.File;
+
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class ManyToManyMain {
+
+	public static void main(String[] args) {
+
+		Configuration configuration = new Configuration();
+		configuration.configure(new File("src/hibernate.cfg.xml"));
+
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		
+		Course course_1 = new Course("Science");
+		Course course_2 = new Course("Commerse");
+		
+		Student student_1 = new Student("Piyush");
+		Student student_2 = new Student("Vishal");
+		
+		student_1.getCourses().add(course_1);
+		student_1.getCourses().add(course_2);
+		
+		student_2.getCourses().add(course_1);
+		
+		session.save(student_1);
+		session.save(student_2);
+		transaction.commit();
+		session.close();
+		
+		Session session_1 = sessionFactory.openSession();
+		Student s2 =(Student) session_1.get(Student.class, student_1.getStudentId());
+		session_1.delete(s2);
+		session_1.close();
+		//transaction.commit();
+	}
+
+}

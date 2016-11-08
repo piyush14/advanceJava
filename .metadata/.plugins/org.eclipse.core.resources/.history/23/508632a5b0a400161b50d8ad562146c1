@@ -1,0 +1,22 @@
+package com.manytomanymapping;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="COURSE")
+public class Course {
+
+	@Id
+	@Column(name="COURSE_ID")
+	@GeneratedValue
+	private Long courseId;
+	
+	@Column(name="SUBJECT")
+	private String subject;
+	
+	@ManyToMany(mappedBy="course")
+	private Set<Student> student = new HashSet<Student>();
+}

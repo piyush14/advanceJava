@@ -1,0 +1,14 @@
+package com.chating;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="CHAT_ROOM")
+public class ChatRoom {
+	
+	@Id
+	@GeneratedValue
+	@Column(name="CHATROOM_ID")
+	private int CHATROOM_ID;
+
+}

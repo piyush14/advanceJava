@@ -1,0 +1,15 @@
+package com.onttonmapping;
+
+public class OneToManyMain {
+
+	public static void main(String[] args) {
+
+		Market market = new Market();
+		market.setMarketName("bombay market");
+		market.setMarketPrice(500000);
+		
+		
+		Stock s1 = new Stock();
+	}
+
+}

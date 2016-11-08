@@ -1,0 +1,9 @@
+package com.useroperations;
+
+import org.aspectj.lang.annotation.Aspect;
+
+@Aspect
+public class UserHandler {
+
+	
+}

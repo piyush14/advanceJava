@@ -1,0 +1,11 @@
+package com.callback;
+
+import org.springframework.beans.factory.InitializingBean;
+
+public class ExampleBean implements InitializingBean  {
+
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("afterPropertiesSet");
+	}
+
+}

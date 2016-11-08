@@ -1,0 +1,25 @@
+package com.callback;
+
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.*;
+
+public class ExampleBean implements InitializingBean,DisposableBean ,BeanNameAware  {
+
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("afterPropertiesSet");
+	}
+
+	public void destroy() throws Exception {
+		System.out.println("destroy()");
+
+	}
+
+	
+	public ExampleBean(){
+		System.out.println("In constructor");
+	}
+
+	public void setBeanName(String arg0) {
+		System.out.println("bean name : "+arg0);
+	}
+}

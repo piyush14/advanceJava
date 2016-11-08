@@ -1,0 +1,10 @@
+package com.onttonmapping;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="STOCK")
+public class Stock {
+
+}

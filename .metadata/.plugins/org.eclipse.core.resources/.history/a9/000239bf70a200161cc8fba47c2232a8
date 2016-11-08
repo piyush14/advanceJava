@@ -1,0 +1,13 @@
+package com.onetoonemapping;
+
+import org.hibernate.*;
+
+public class OneToOneMain {
+
+	public static void main(String[] args) {
+		SessionFactory sf = HibernateUtil.getSessionFactory();
+		Session session = sf.openSession();
+		session.beginTransaction();
+	}
+
+}

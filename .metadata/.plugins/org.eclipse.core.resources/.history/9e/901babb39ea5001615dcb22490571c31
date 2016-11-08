@@ -1,0 +1,34 @@
+package com.spring.SpringAOP;
+
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+
+@Aspect
+public class AspectMethod {
+
+	static long startTime;
+	static long endTime;
+	@Pointcut("execution(* MethodClass.addInVectors(..))")
+	public void parameter_pointcut(){}//pointcut name
+	
+	@Before("parameter_pointcut()")
+	public void beforeAddInVectors(){
+		System.out.println("before called");
+		startTime = System.currentTimeMillis();
+		
+	}
+	
+	@After("parameter_pointcut()")
+	public void afterAddInVectors(){
+		System.out.println("after called");
+		endTime = System.currentTimeMillis();
+		System.out.println("Total time lapsed : "+ (endTime - startTime));
+		
+	}
+	//@Before("parameter_pointcut()")
+	public void addInList(){
+		
+	}
+}

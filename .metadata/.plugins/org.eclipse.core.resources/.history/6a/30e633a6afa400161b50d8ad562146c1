@@ -1,0 +1,14 @@
+package com.manytomanymapping;
+
+import javax.persistence.*;
+
+
+@Entity
+@Table(name="STUDENT")
+public class Student {
+
+	@Id
+	@Column(name="STUDENT_ID")
+	@GeneratedValue
+	private Long StudentId;
+}

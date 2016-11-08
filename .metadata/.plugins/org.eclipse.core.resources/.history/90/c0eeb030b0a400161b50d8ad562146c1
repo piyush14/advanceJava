@@ -1,0 +1,22 @@
+package com.manytomanymapping;
+
+import javax.persistence.*;
+
+
+@Entity
+@Table(name="STUDENT")
+public class Student {
+
+	@Id
+	@Column(name="STUDENT_ID")
+	@GeneratedValue
+	private Long StudentId;
+	
+	@Column(name="NAME")
+	private String name;
+	
+	@ManyToMany(cascade = {CascadeType.ALL})
+	@JoinTable(name="STUDENT_COURSE", 
+				joinColumns={@JoinColumn(name="EMPLOYEE_ID")}, 
+				inverseJoinColumns={@JoinColumn(name="MEETING_ID")})
+}

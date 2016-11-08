@@ -1,0 +1,18 @@
+package com.useroperations;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+
+@Aspect
+public class UserHandler {
+
+	@Pointcut("execution(* UserOperations.addUser(..))")
+	public void pointcut_addUser(){}//pointcut name
+	
+	
+	@Before("pointcut_addUser()")
+	public void beforeAddUser(){
+		
+	}
+}

@@ -1,0 +1,16 @@
+package com.spring.SpringAOP;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+
+@Aspect
+public class MethodClass {
+	@Pointcut("execution(* MethodCall.*(..))")
+	public void addInVectors(){
+		
+	}
+	
+	public void addInList(){
+		
+	}
+}

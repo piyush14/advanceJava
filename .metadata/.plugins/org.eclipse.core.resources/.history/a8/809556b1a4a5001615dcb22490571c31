@@ -1,0 +1,40 @@
+package com.useroperations;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class UserOperations {
+	ArrayList<User> list = new ArrayList<User>();
+	private String loginName,password,firstName,country;
+	
+	public static Scanner sc = new Scanner(System.in);
+	public void login() {
+
+	}
+
+	public void logout() {
+
+	}
+
+	public void register() {
+		User u = null;
+		System.out.println("Enter first name :");
+		firstName=sc.nextLine();
+		u.setFirstName(firstName);
+		
+		System.out.println("Enter country :");
+		country=sc.nextLine();
+		u.setCountry(country);
+		
+		System.out.println("Enter loginName :");
+		loginName=sc.nextLine();
+		u.setLoginName(loginName);
+		
+		System.out.println("Enter password :");
+		password=sc.nextLine();
+		u.setPassword(password);
+		
+		list.add(u);
+		
+	}
+}

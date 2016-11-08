@@ -1,0 +1,19 @@
+package com.useroperations;
+
+public class UserOperations {
+	
+	private String loginName,password,firstName,country;
+	
+	
+	public void login() {
+
+	}
+
+	public void logout() {
+
+	}
+
+	public void register() {
+
+	}
+}

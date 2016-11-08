@@ -1,0 +1,24 @@
+package com.spring.SpringAOP;
+
+import java.util.Vector;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+
+public class MethodClass {
+	
+	
+	public void show(){
+		System.out.println("MethodClass called");
+	}
+	
+	public void addInVectors(){
+		Vector <Integer> v = new Vector<Integer>();
+		
+		for(int i=0;i<1000;i++){
+			v.add(i,i);
+		}
+		System.out.println("Elements added");
+	}
+}

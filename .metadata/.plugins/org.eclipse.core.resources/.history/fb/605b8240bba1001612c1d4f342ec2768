@@ -1,0 +1,58 @@
+package com.hibernate.HibernateDemo;
+
+import java.io.File;
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class CURD_Operations {
+
+	public static void main(String[] args) {
+
+		Configuration cfg = new Configuration();
+		cfg.configure(new File("src/hibernate.cfg.xml"));
+		
+		SessionFactory factory = cfg.buildSessionFactory();
+		Session session = factory.openSession();
+		
+		//create product
+		Product p = new Product("mobile",25000);
+		Transaction tar = session.beginTransaction();
+		session.save(p);
+		tar.commit();
+		System.out.println(p.getId());
+		session.close();
+		//factory.close();
+		
+		System.out.println("data added");
+		
+		//update
+		Session session_3 = factory.openSession();
+		p.setPrice(5000);
+		long id = (Long) session_3.save(p);
+		System.out.println("ID"+id);
+		
+		//display all
+		 Session session_2 = factory.openSession();
+	        Query selectQuery = session_2.createQuery("from Product");
+	        List<Product> plist = selectQuery.list();
+	        System.out.println(plist.toString());
+	        session_2.close();
+
+		
+		
+//		//delete
+//		Session session_2 = factory.openSession();
+//		//Product p_1 = session_2.get(, id)
+//		session_2.delete(p);
+//		System.out.println("deleted");
+//		session_2.close();
+
+		
+	}
+
+}

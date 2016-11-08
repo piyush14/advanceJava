@@ -1,0 +1,34 @@
+package com.onetoonemapping;
+
+import javax.persistence.Entity;
+import javax.persistence.*;
+
+@Entity
+@Table(name="ENQUIRY")
+public class Enquiry {
+	@Id
+	@GeneratedValue
+	@Column(name="ID")
+	private long id;
+	
+	@Column(name="ENQ_STATUS")
+	private String enqStatus;
+
+	public Enquiry(String enqSatatus){
+		//this.id = id;
+		this.enqStatus = enqSatatus;
+	}
+	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getEnqStatus() {
+		return enqStatus;
+	}
+	public void setEnqStatus(String enqStatus) {
+		this.enqStatus = enqStatus;
+	}
+}

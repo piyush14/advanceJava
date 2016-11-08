@@ -1,0 +1,10 @@
+package com.chating;
+
+import javax.persistence.Entity;
+import javax.persistence.*;
+
+@Entity
+@Table(name="MARKET")
+public class ChatRoom {
+
+}

@@ -1,0 +1,24 @@
+package com.chating;
+
+import javax.persistence.*;
+
+import com.onetonmapping.Market;
+
+@Entity
+@Table(name="USERS")
+public class Users {
+	@Id
+	@GeneratedValue
+	@Column(name="USER_ID")
+	private int USER_ID;
+	
+	@Column(name="USER_NAME")
+	private String userName;
+	
+	@Column(name="USER_PASSWORD")
+	private long userPassword;
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="CHATROOM_ID")
+	private ChatRoom chatRoom;
+}

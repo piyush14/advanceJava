@@ -1,0 +1,8 @@
+package com.hierarchy.singletable;
+
+
+@Entity
+@Table(name="VEHICLE")
+public class Vehicle {
+
+}

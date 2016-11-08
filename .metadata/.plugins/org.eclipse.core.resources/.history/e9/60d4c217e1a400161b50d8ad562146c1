@@ -1,0 +1,12 @@
+package com.chating;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="MESSAGES")
+public class Meassages {
+
+	
+	@Column(name="MESSAGE_DATA")
+	private String messageData;
+}

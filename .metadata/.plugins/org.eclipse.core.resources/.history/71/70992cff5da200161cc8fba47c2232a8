@@ -1,0 +1,88 @@
+package com.hibernate.EmployeDemo;
+
+import java.io.File;
+import java.util.Iterator;
+import java.util.List;
+
+import org.hibernate.Criteria;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
+
+import com.hibernate.HibernateDemo.Product;
+
+public class EmployeMain {
+
+	public static void main(String[] args) {
+		Configuration configuration = new Configuration();
+		configuration.configure(new File("src/hibernate.cfg.xml"));
+
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		
+		
+		//add employee
+		/*
+		Session session_1 = sessionFactory.openSession();
+		
+		Employee emp = new Employee("MNB", 9700,"pune");
+		Transaction transaction = session_1.beginTransaction();
+
+		session_1.save(emp); // Hibernate
+
+		long productId = emp.getId();
+		transaction.commit();
+		session_1.close();
+		*/
+		
+		
+		//total salary of all employes HQL query
+		Session session_2 = sessionFactory.openSession();
+
+		Query q=session_2.getNamedQuery("salaryOfAllEmployes"); 
+		List<Employee> list=q.list();  
+		    Iterator<Employee> itr=list.iterator();  
+		    while(itr.hasNext()){  
+		        System.out.println("total salary of all employes"+itr.next());  
+		} 
+		    
+		    session_2.close();
+		    //employe ordered by salary HQL query
+		    Session session_3 = sessionFactory.openSession();
+
+			Query q1=session_3.createQuery("FROM Employee E ORDER BY E.salary");//("employesOrderedBySal"); 
+			List<Employee> list_emp=q1.list();  
+			for (Employee product_3 : list_emp) {
+				System.out.println(product_3);
+			}
+		    
+		    
+		    //employe ordered by salary criteria query
+
+		    Criteria cr = session_3.createCriteria(Employee.class);
+		    cr.addOrder(Order.desc("salary"));
+		    List<Employee> result = cr.list();
+		    for (Employee product_3 : result) {
+				System.out.println(product_3);
+			}
+				session_3.close();
+				
+			//Group the employees based upon their city HQL query
+			    Session session_4 = sessionFactory.openSession();
+			    Query query_2=session_4.createQuery("from Employee E group by E.city");
+			    List<Employee> list_emp_byCity=query_2.list();  
+				for (Employee product_3 : list_emp_byCity) {
+					System.out.println(product_3);
+				}
+			//Group the employees based upon their city criteria query
+				
+				session_4.close();
+				
+
+	}
+
+}

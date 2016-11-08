@@ -1,0 +1,144 @@
+package com.chating;
+
+import java.io.File;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Scanner;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.hibernate.EmployeDemo.Employee;
+import com.onetonmapping.Stock;
+
+public class ChattingMain {
+	public  static Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) {
+		
+		
+		int ch;
+		
+		
+		//createChatRoom(transaction,session);
+		addUsers();
+//		System.out.println("1.Create chat rooom");
+//		ch = sc.nextInt();
+		
+//		switch(ch){
+//		case 1: createChatRoom(transaction,session);
+//				//break;
+//		case 2: addUsers(transaction, session);
+//				break;
+//		case 3 : 
+		//	login(transaction, session);
+//				break;
+//		}
+	}
+	
+	public static void createChatRoom(){
+		Configuration configuration = new Configuration();
+		configuration.configure(new File("src/hibernate.cfg.xml"));
+
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		System.out.println("Enter chatroom name");
+		String chatRoomName = sc.next();
+		ChatRoom cr = new ChatRoom();
+		cr.setChatRoomName(chatRoomName);
+		System.out.println("chat room created");
+		session.save(cr);
+		transaction.commit();
+		 session.close();
+
+	}
+	
+	public static void addUsers(){
+		Configuration configuration = new Configuration();
+		configuration.configure(new File("src/hibernate.cfg.xml"));
+
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		
+		System.out.println("Enter chatroom name");
+		String chatRoomName = sc.next();
+		
+		 Query query = session.createQuery("from ChatRoom ");
+		 List<ChatRoom> chatRoomList = query.list();
+		 for (ChatRoom list : chatRoomList){
+			 
+			 if(chatRoomName.equals(list.toString())){
+				 System.out.println("chatroom found "+list.getCHATROOM_ID());
+				 
+				 System.out.println("Enter user name");
+				 String userName = sc.next();
+				 
+				 System.out.println("Enter password");
+				 String password = sc.next();
+				 
+				 Users user = new Users(userName, password);
+				 user.setChatRoom(list);
+				 list.setUsers(new HashSet<Users>());
+				 list.getUsers().add(user);
+				 session.save(list);
+				 transaction.commit();
+				 break;
+			 }
+			 
+		 }
+		 session.close();
+
+	}
+	
+	public static void login(){
+		Configuration configuration = new Configuration();
+		configuration.configure(new File("src/hibernate.cfg.xml"));
+
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+		System.out.println("Enter chatroom name");
+		String chatRoomName = sc.next();
+		
+		System.out.println("Enter user name");
+		 String userName = sc.next();
+		 
+		 System.out.println("Enter password");
+		 String password = sc.next();
+		
+		 Query query = session.createQuery("from ChatRoom ");
+		 List<ChatRoom> chatRoomList = query.list();
+		 for (ChatRoom list : chatRoomList){
+			// Users userList = list.
+			 if(chatRoomName.equals(list.toString())){
+				 System.out.println("chatroom found "+list.getCHATROOM_ID());
+				 String hql = "FROM Users U WHERE U.userName = ".concat(userName);
+				 Query query_1 = session.createQuery( "FROM Users U WHERE U.userName = :uname AND U.userPassword = :pwd");
+				 query_1.setParameter("uname", userName);
+				 query_1.setParameter("pwd", password);
+				 List<Users> results = query_1.list();
+				 for (Users u : results) {
+						System.out.println(u.toString());
+						System.out.println("logged in as : "+userName);
+					}
+				 sendMessages(list.getChatRoomName());
+				 
+			 }
+		 }
+		 session.close();
+	}
+	
+	public static void sendMessages(String chatRoomName){
+		System.out.println("Enter msg");
+		String msg = sc.next();
+	}
+	
+	public static void displayAllMessages(){
+		
+	}
+
+}

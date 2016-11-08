@@ -1,0 +1,45 @@
+package com.onttonmapping;
+
+import java.io.File;
+import java.util.HashSet;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class OneToManyMain {
+
+	public static void main(String[] args) {
+
+		Configuration configuration = new Configuration();
+		configuration.configure(new File("src/hibernate.cfg.xml"));
+
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+
+		
+		
+		Market market = new Market();
+		market.setMarketName("bombay market");
+		market.setMarketPrice(500000);
+		
+		
+		Stock s1 = new Stock("xoriant",10000L);
+		Stock s2 = new Stock("TCS",98750L);
+		
+		s1.setMarket(market);
+		s2.setMarket(market);
+		
+		market.setStock(new HashSet<Stock>());
+		market.getStock().add(s1);
+		market.getStock().add(s2);
+		session.save(market);
+		transaction.commit();
+		session.close();
+		System.out.println("market and stock addded");
+
+	}
+
+}

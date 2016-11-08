@@ -1,0 +1,10 @@
+package com.spring.chatting;
+
+public class ChattingMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

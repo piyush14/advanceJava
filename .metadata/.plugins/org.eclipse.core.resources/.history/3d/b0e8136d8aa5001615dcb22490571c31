@@ -1,0 +1,21 @@
+package com.callback;
+
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.*;
+
+public class ExampleBean implements InitializingBean,DisposableBean   {
+
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("afterPropertiesSet");
+	}
+
+	public void destroy() throws Exception {
+		System.out.println("destroy()");
+
+	}
+
+	
+	public ExampleBean(){
+		System.out.println("In constructor");
+	}
+}

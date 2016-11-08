@@ -1,0 +1,57 @@
+package com.onetoonemapping;
+
+import javax.persistence.Entity;
+import javax.persistence.*;
+
+@Entity
+@Table(name="CUSTOMER")
+public class Customer {
+	@Id
+	@GeneratedValue
+	@Column(name="id")
+	private Long id;
+	
+	@Column(name="name")
+	private String name;
+	
+	@OneToOne(cascade = { CascadeType.ALL })
+	@JoinColumn(name="Enquiry_ID")
+	private Enquiry Enquiry;
+	
+	public Customer() {
+		
+	}
+	
+	public Customer(String name, Enquiry Enquiry) {
+		this.name = name;
+		this.Enquiry = Enquiry;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Enquiry getEnquiry() {
+		return Enquiry;
+	}
+
+	public void setEnquiry(Enquiry Enquiry) {
+		this.Enquiry = Enquiry;
+	}
+
+	public String toString() {
+		return id + " - " + name + " - " + Enquiry;
+	}
+}

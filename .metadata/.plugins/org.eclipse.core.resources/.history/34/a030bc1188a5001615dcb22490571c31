@@ -1,0 +1,25 @@
+package com.spring.SpringDemo;
+
+import java.util.Map;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	AbstractApplicationContext context = new ClassPathXmlApplicationContext("Beans_File.xml");
+    	OrderBean ob = (OrderBean) context.getBean("order");
+    	System.out.println(ob.getOrderName());
+    	System.out.println(ob.getItem().getName() +" - " +ob.getItem().getPrice());
+    	//Map list = ob.getItem().getItemList();
+    	//System.out.println(ob.getItem().getItemList().containsKey("mobile"));
+    		
+    	
+    }
+}

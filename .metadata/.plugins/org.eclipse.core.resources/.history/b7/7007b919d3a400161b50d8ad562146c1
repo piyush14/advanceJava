@@ -1,0 +1,37 @@
+package com.chating;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="CHAT_ROOM")
+public class ChatRoom {
+	
+	@Id
+	@GeneratedValue
+	@Column(name="CHATROOM_ID")
+	private int CHATROOM_ID;
+	
+	@Column(name="CHATROOM_NAME")
+	private String chatRoomName;
+	
+	public void chatRoom(String chatRoomName){
+		this.chatRoomName = chatRoomName;
+	}
+
+	public int getCHATROOM_ID() {
+		return CHATROOM_ID;
+	}
+
+	public void setCHATROOM_ID(int cHATROOM_ID) {
+		CHATROOM_ID = CHATROOM_ID;
+	}
+
+	public String getChatRoomName() {
+		return chatRoomName;
+	}
+
+	public void setChatRoomName(String chatRoomName) {
+		this.chatRoomName = chatRoomName;
+	}
+
+}

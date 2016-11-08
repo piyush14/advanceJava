@@ -1,0 +1,49 @@
+package com.onetoonemapping;
+
+import java.io.File;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class OneToOneMain {
+
+	public static void main(String[] args) {
+		Configuration configuration = new Configuration();
+		configuration.configure(new File("src/hibernate.cfg.xml"));
+
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+
+		Enquiry enq = new Enquiry("Solved");
+		Customer cus = new Customer("TOM",enq);
+		session.persist(cus);
+		long id = cus.getId();
+		session.flush();
+		transaction.commit();
+		session.close();
+		System.out.println("Customer Saved");
+		
+		
+		Session session_1 = sessionFactory.openSession();
+		Transaction transaction_1 = session_1.beginTransaction();
+
+		Customer c2 = session_1.load(Customer.class, id);
+		c2.setName("changed");
+		session_1.update(c2);
+		transaction_1.commit();
+		session_1.close();
+
+		
+		Session session_2 = sessionFactory.openSession();
+		Transaction transaction_2 = session_2.beginTransaction();
+
+		Customer c3 = session_1.load(Customer.class, id);
+		session_2.delete(c3);
+		transaction_2.commit();
+		session_2.close();
+	}
+
+}

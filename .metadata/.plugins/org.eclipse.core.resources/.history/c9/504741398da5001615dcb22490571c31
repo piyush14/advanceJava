@@ -1,0 +1,16 @@
+package com.spring.chatting;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.callback.ExampleBean;
+
+public class ChattingMain {
+
+	public static void main(String[] args) {
+		AbstractApplicationContext context = new ClassPathXmlApplicationContext("ChatRoomData.xml");
+		ChattingDataBean ob_1 = (ChattingDataBean) context.getBean("chatRoomName");
+		System.out.println(ob_1.getChatUsers());
+	}
+
+}

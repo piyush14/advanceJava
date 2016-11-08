@@ -1,0 +1,30 @@
+package com.onttonmapping;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="STOCK")
+public class Stock {
+	@Id
+	@GeneratedValue
+	@Column(name="STOCK_ID")
+	private int STOCK_ID;
+	
+	@Column(name="STOCK_NAME")
+	private String stockName;
+	
+	@Column(name="STOCK_VALUE")
+	private String stockValue;
+	
+	@ManyToOne(cascade=CascadeType.ALL)
+	@JoinColumn(name="DEPARTMENT_ID")
+	private Market market;
+
+}

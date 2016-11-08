@@ -1,0 +1,9 @@
+package com.manytomanymapping;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="COURSE")
+public class Course {
+
+}

@@ -1,0 +1,74 @@
+package com.onttonmapping;
+
+import java.io.File;
+import java.util.HashSet;
+import java.util.Set;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+public class OneToManyMain {
+
+	public static void main(String[] args) {
+
+		Configuration configuration = new Configuration();
+		configuration.configure(new File("src/hibernate.cfg.xml"));
+
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		Transaction transaction = session.beginTransaction();
+
+		// addData(transaction, session);
+		// deleteData(transaction, session);
+		updateData(transaction, session);
+
+	}
+
+	public static void addData(Transaction transaction, Session session) {
+		Market market = new Market();
+		market.setMarketName("delhi market");
+		market.setMarketPrice(5796000);
+
+		Stock s1 = new Stock("Mahindra", 986500L);
+		Stock s2 = new Stock("HDFC", 8998750L);
+
+		s1.setMarket(market);
+		s2.setMarket(market);
+
+		market.setStock(new HashSet<Stock>());
+		market.getStock().add(s1);
+		market.getStock().add(s2);
+		session.save(market);
+		transaction.commit();
+		session.close();
+		System.out.println("market and stock addded");
+	}
+
+	public static void deleteData(Transaction transaction, Session session) {
+		Market market = (Market) session.get(Market.class, 40);
+		session.delete(market);
+		transaction.commit();
+		session.close();
+		System.out.println("deleted successfully");
+	}
+
+	public static void updateData(Transaction transaction, Session session) {
+		Market market = (Market) session.get(Market.class, 43);
+		market.setStock(new HashSet<Stock>());
+		Set<Stock> stocks = market.getStock();
+		for (Stock s : stocks) {
+			if (s.getStockName().equals("HDFC")) {
+				s.setStockValue(455);
+				System.out.println("***********");
+				break;
+			}
+		}
+		// session.save(market);
+		transaction.commit();
+		session.close();
+		System.out.println("value updated");
+
+	}
+}

@@ -1,0 +1,9 @@
+package com.onttonmapping;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="MARKET")
+public class Market {
+
+}

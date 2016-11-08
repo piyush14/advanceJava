@@ -1,0 +1,14 @@
+package com.hierarchy.singletable;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="VEHICLE")
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name="type", discriminatorType=DiscriminatorType.STRING)
+public class Vehicle {
+	@Id
+	@GeneratedValue
+	@Column(name="id")
+	private long vehicleId;
+}

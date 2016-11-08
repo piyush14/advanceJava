@@ -1,0 +1,25 @@
+package com.onttonmapping;
+
+import java.util.Set;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="MARKET")
+public class Market {
+	@Id
+	@GeneratedValue
+	@Column(name="MARKET_ID")
+	private int MARKET_ID;
+	
+	@Column(name="MARKET_NAME")
+	private String marketName;
+	
+	@Column(name="MARKET_PRICE")
+	private long marketPrice;
+	
+	
+	@OneToMany(mappedBy="market", cascade={CascadeType.ALL})
+	private Set<Stock> stock;
+
+}

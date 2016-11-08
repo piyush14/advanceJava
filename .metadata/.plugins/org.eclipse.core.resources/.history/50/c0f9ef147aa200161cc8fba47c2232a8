@@ -1,0 +1,19 @@
+package com.onttonmapping;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="MARKET")
+public class Market {
+	@Id
+	@GeneratedValue
+	@Column(name="MARKET_ID")
+	private int MARKET_ID;
+	
+	@Column(name="MARKET_NAME")
+	private String marketName;
+	
+	@Column(name="MARKET_VALUE")
+	private long marketValue;
+
+}

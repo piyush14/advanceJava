@@ -1,0 +1,9 @@
+package com.hierarchy.singletable;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name="VEHICLE")
+public class Vehicle {
+
+}

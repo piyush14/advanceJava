@@ -1,0 +1,11 @@
+package com.useroperations;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+
+@Aspect
+public class UserHandler {
+
+	@Pointcut("execution(* UserOperations.addUser(..))")
+	public void pointcut_addInVectors(){}//pointcut name
+}

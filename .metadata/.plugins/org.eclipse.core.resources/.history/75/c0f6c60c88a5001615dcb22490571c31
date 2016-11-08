@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans-4.1.xsd">
+
+	<bean id="item_1" class="com.spring.SpringDemo.ItemBean" >
+		<property name="name" value="mobile"/>
+		<property name="price" value="10000"/>
+	</bean>
+	
+	<bean id="item_2" class="com.spring.SpringDemo.ItemBean" >
+		<property name="name" value="laptop"/>
+		<property name="price" value="45000"/>
+	</bean>
+	
+	<bean id="item_3" class="com.spring.SpringDemo.ItemBean" >
+		<property name="itemList">
+         <map>
+            <entry key="mobile" value="10000"/>
+            <entry key="laptop" value="45000"/>
+         </map>
+      </property>
+	</bean>
+	
+	
+
+	<bean id="order" class="com.spring.SpringDemo.OrderBean" >
+		<property name="orderName" value="piyush order"/>
+		<property name="item" ref="item_1"/>
+		
+	</bean>
+ 
+
+</beans>

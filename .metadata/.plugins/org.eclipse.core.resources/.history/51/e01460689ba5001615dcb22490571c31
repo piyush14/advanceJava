@@ -1,0 +1,26 @@
+package com.spring.SpringAOP;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+
+@Aspect
+public class MethodClass {
+	@Pointcut("execution(* MethodCall.*(..))")
+	public void parameter_pointcut(){}//pointcut name
+	
+	
+	@Before("parameter_pointcut()")
+	public void addInVectors(){
+		System.out.println("b4 called");
+		
+	}
+	
+	public void addInList(){
+		
+	}
+	
+	public void show(){
+		System.out.println("MethocClass called");
+	}
+}

@@ -1,0 +1,6 @@
+package com.useroperations;
+
+public class User {
+
+	private String loginName,password,firstName,country;
+}

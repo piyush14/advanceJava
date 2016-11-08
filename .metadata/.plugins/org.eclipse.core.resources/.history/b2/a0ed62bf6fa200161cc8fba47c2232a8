@@ -1,0 +1,16 @@
+package com.onetoonemapping;
+
+import javax.persistence.Entity;
+import javax.persistence.*;
+
+@Entity
+@Table(name="CUSTOMER")
+public class Customer {
+	@Id
+	@GeneratedValue
+	@Column(name="id")
+	private Long id;
+	
+	@Column(name="name")
+	private String name;
+}

@@ -1,0 +1,28 @@
+package com.spring.SpringAOP;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+import org.aspectj.lang.annotation.Pointcut;
+
+@Aspect
+public class AspectMethod {
+
+	@Pointcut("execution(* MethodClass.addInVectors(..))")
+	public void parameter_pointcut(){}//pointcut name
+	
+	@Before("parameter_pointcut()")
+	public void beforeAddInVectors(){
+		System.out.println("before called");
+		
+	}
+	
+	@Before("parameter_pointcut()")
+	public void afterAddInVectors(){
+		System.out.println("before called");
+		
+	}
+	//@Before("parameter_pointcut()")
+	public void addInList(){
+		
+	}
+}
