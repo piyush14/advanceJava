@@ -56,12 +56,17 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.spring.SpringAOP"/>
+			<item value="com.spring.SpringDemo"/>
 			<item value="com.hibernate.HibernateDemo"/>
 		</list>
 		<list key="groupId">
+			<item value="com.spring"/>
 			<item value="com.hibernate"/>
 		</list>
 		<list key="artifactId">
+			<item value="SpringAOP"/>
+			<item value="SpringDemo"/>
 			<item value="HibernateDemo"/>
 		</list>
 		<list key="projectNameTemplate">

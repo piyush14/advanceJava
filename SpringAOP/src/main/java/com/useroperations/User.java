@@ -2,37 +2,59 @@ package com.useroperations;
 
 public class User {
 
-	private String loginName,password,firstName,country;
+	 private Integer id;
 
-	public String getLoginName() {
-		return loginName;
-	}
+	    private String username;
 
-	public void setLoginName(String loginName) {
-		this.loginName = loginName;
-	}
+	    private String password;
 
-	public String getPassword() {
-		return password;
-	}
+	    private Chatroom chatroom;
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+	    public User() {
+	    }
 
-	public String getFirstName() {
-		return firstName;
-	}
+	    public User(String username, String password, Chatroom chatroom) {
+	        super();
+	        this.username = username;
+	        this.password = password;
+	        this.chatroom = chatroom;
+	    }
 
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
+	    public Integer getId() {
+	        return id;
+	    }
 
-	public String getCountry() {
-		return country;
-	}
+	    public void setId(Integer id) {
+	        this.id = id;
+	    }
 
-	public void setCountry(String country) {
-		this.country = country;
-	}
+	    public String getUsername() {
+	        return username;
+	    }
+
+	    public void setUsername(String username) {
+	        this.username = username;
+	    }
+
+	    public String getPassword() {
+	        return password;
+	    }
+
+	    public void setPassword(String password) {
+	        this.password = password;
+	    }
+
+	    public Chatroom getChatroom() {
+	        return chatroom;
+	    }
+
+	    public void setChatroom(Chatroom chatroom) {
+	        this.chatroom = chatroom;
+	    }
+
+	    @Override
+	    public String toString() {
+	        return "User [id=" + id + ", username=" + username + ", password="
+	                + password + "]";
+	    }
 }

@@ -1,25 +1,56 @@
-package com.useroperations;
-
-import org.aspectj.lang.JoinPoint;
-import org.aspectj.lang.ProceedingJoinPoint;
-import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
-import org.aspectj.lang.annotation.Pointcut;
-import com.useroperations.User;
-
-
-@Aspect
-public class UserHandler {
-
-	@Pointcut("execution(* UserOperations.addUser(..))")
-	public void pointcut_addUser(){}//pointcut name
-	
-	
-	@Before("pointcut_addUser()")
-	 public Object beforeAddUser(JoinPoint jp) throws Throwable { 
-    	Object args[] = jp.getArgs();
-    	System.out.println("before");
-    	System.out.println("value " +args[0]);
-        return new Object();
-   }
-}
+//package com.useroperations;
+//
+//import java.util.ArrayList;
+//import java.util.Scanner;
+//import  com.useroperations.*;
+//public class UserHandler {
+//	
+//	public static String loginName,password,firstName,country;
+//	public static ArrayList<User> list = new ArrayList<User>();
+//
+//	public static Scanner sc = new Scanner(System.in);
+//	public void login() {
+//		
+//		System.out.println("Enter loginName :");
+//		loginName=sc.next();
+//		
+//		
+//		System.out.println("Enter password :");
+//		password=sc.next();
+//		for(User u : list){
+//			if(u.getLoginName().equals(loginName) && u.getPassword().equals(password)){
+//				System.out.println("successfully login");
+//			}
+//		}
+//	}
+//
+//	public void logout() {
+//
+//	}
+//
+//	public void register() {
+//		User u = new User();
+//		System.out.println("Enter first name :");
+//		firstName=sc.next();
+//		u.setFirstName(firstName);
+//		
+//		System.out.println("Enter country :");
+//		country=sc.next();
+//		u.setCountry(country);
+//		
+//		System.out.println("Enter loginName :");
+//		loginName=sc.next();
+//		u.setLoginName(loginName);
+//		
+//		System.out.println("Enter password :");
+//		password=sc.next();
+//		u.setPassword(password);
+//		
+//		addUser(u);
+//		
+//	}
+//	
+//	public  void addUser(User u){
+//		list.add(u);
+//	}
+//}

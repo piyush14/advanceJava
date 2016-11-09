@@ -2,12 +2,14 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="USERS" key="selection"/>
+		<item value="com.spring.chatting" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="com.aditya.spring.chat"/>
+			<item value="before"/>
 			<item value="users"/>
 			<item value="toString"/>
 			<item value="Address"/>
@@ -15,6 +17,7 @@
 			<item value="crite"/>
 		</list>
 		<list key="replacehistory">
+			<item value="com.spring.chatting"/>
 			<item value="Enquiry"/>
 			<item value="Long"/>
 		</list>

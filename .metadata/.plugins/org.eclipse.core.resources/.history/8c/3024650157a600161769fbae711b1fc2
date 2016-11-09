@@ -1,0 +1,13 @@
+package com.spring.rest.SpringRest;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Advertise {
+
+	public Advertise(){
+		
+	}
+	
+	List<String> categoryList = new ArrayList<String>();
+}
