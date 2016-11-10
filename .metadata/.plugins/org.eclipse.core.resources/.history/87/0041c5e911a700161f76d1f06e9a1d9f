@@ -1,0 +1,11 @@
+package com.spring.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.spring.service.UserService;
+
+public class UserController {
+
+	@Autowired
+	private UserService userService;
+}

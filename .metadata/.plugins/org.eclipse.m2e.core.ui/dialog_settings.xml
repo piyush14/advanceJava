@@ -44,6 +44,8 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\Users\mulik_p\hibernateWorkspace\AdvertisementProject\pom.xml"/>
+			<item value="C:\Users\mulik_p\hibernateWorkspace\SpringRest"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -56,6 +58,8 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.spring.AdvertisementProject"/>
+			<item value="com.spring.AdvertisementProjectNew"/>
 			<item value="com.spring.SpringAOP"/>
 			<item value="com.spring.SpringDemo"/>
 			<item value="com.hibernate.HibernateDemo"/>
@@ -65,6 +69,8 @@
 			<item value="com.hibernate"/>
 		</list>
 		<list key="artifactId">
+			<item value="AdvertisementProject"/>
+			<item value="AdvertisementProjectNew"/>
 			<item value="SpringAOP"/>
 			<item value="SpringDemo"/>
 			<item value="HibernateDemo"/>

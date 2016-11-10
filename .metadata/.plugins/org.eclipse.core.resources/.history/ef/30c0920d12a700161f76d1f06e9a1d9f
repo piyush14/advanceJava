@@ -1,0 +1,12 @@
+package com.spring.service;
+
+import com.spring.entity.User;
+
+public class UserServiceImpl implements UserService {
+
+	public User register(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="com.spring.chatting" key="selection"/>
+		<item value="advertise" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="advertise"/>
 			<item value="com.aditya.spring.chat"/>
 			<item value="before"/>
 			<item value="users"/>
@@ -26,7 +27,7 @@
 		<item value="237" key="DIALOG_WIDTH"/>
 		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
 		<item value="357" key="DIALOG_HEIGHT"/>
-		<item value="723" key="DIALOG_X_ORIGIN"/>
-		<item value="148" key="DIALOG_Y_ORIGIN"/>
+		<item value="906" key="DIALOG_X_ORIGIN"/>
+		<item value="167" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

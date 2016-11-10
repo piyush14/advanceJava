@@ -1,0 +1,12 @@
+package com.spring.dao;
+
+import com.spring.entity.User;
+
+public class UserDAOImpl implements UserDAO {
+
+	public User register(User user) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
